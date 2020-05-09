@@ -1,0 +1,41 @@
+.cart-item-image {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 100%;
+  border-radius: 14px;
+}
+
+.cart-item-image > img {
+  position: absolute;
+  object-fit: cover;
+}
+
+.cart-item-title {
+  font-weight: 400;
+  color: rgba(0,0,0,.8);
+  font-size: 23px;
+}
+
+.cart-item-price {
+  font-weight: 700;
+  font-size: 23px;
+}
+
+.cart-item-btn-wrapper {
+  background-color: rgba(0,0,0,.06);
+  border-radius: 15px;
+}
+
+.cart-item-btn-icon {
+  font-size: 16px;
+  color: rgba(0,0,0,.8);
+}
+
+.cart-item-btn-icon:active {
+  background-color: rgba(0,0,0,.12);
+}
+
+.cart-item-btn-quantity {
+  font-size: 20px;
+  font-weight: bold;
+}

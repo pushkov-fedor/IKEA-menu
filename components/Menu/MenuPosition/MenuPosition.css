@@ -1,0 +1,40 @@
+.menu-position-link-container, .menu-position-link-container:hover, .menu-position-link-container:focus{
+  color: rgba(0,0,0,.7);
+  outline: none;
+  text-decoration: none;
+}
+
+.square {
+  padding-bottom: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 25px;
+  box-shadow: 0 4px 4px rgba(0,0,0,.25);
+}
+
+.square img {
+  position: absolute;
+  object-fit: cover;
+}
+
+.price-badge {
+  position: absolute;
+  top:  5%;
+  right: -8%;
+  box-shadow: 0 4px 4px rgba(0,0,0,.25);
+}
+
+.price-badge {
+  background-color: #FFDA1A;
+  font-size: 21px;
+  border-radius: 2px 9px 9px 2px;
+  z-index: 200;
+}
+
+.position-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(0,0,0,.7);
+  min-height: 70px;
+}

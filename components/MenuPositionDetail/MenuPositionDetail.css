@@ -1,0 +1,124 @@
+.position-detail-wrapper {
+  min-height: 100vh;
+}
+
+.menu-position-detail-bg{
+  z-index: -100;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-position-detail-bg .bg-detail-yellow {
+  height: 100%;
+  background-color: #FFDA1A;
+}
+
+.menu-position-detail-bg .bg-detail-white {
+  top: 30vh;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: #fff;
+  border-top-left-radius: 182px;
+}
+
+.position-detail-button-back {
+  position: absolute;
+  top: 5vh;
+  left: 5%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 27px;
+  color: rgba(0,0,0,.8);
+}
+
+.position-detail-cart-button {
+  z-index: 200;
+  position: sticky;
+  margin-left: 82%;
+  top: 3vh;
+}
+
+.position-detail-image-container{
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100%;
+    border-radius: 75px;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+}
+.position-detail-image-container img{
+    position: absolute;
+    object-fit:  cover;
+}
+
+.position-detail-title {
+  color: rgba(0,0,0,.8);
+}
+
+.position-detail-description {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.position-detail-price {
+  font-weight: bold;
+  color: rgba(0,0,0,.8);
+  font-size: 35px;
+}
+
+.position-detail-collapse-wrapper{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.position-detail-collapse-button {
+  border: none; 
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.position-detail-collapse-button:focus {
+  outline: none;
+}
+
+.position-detail-span-bold {
+  color: #0051BA;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.position-detail-collapse-content-text {
+  color: #0051BA;
+}
+
+.position-detail-calories {
+  font-weight: 300;
+  font-size: 30px;
+}
+
+.position-detail-span-bold-dark {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.position-detail-btn-cart {
+  width: 85%;
+  border: none;
+  border-radius: 30px;
+  background-color: #0051BA;
+  box-shadow: 0 4px 4px rgba(0,0,0,.25);
+  color: white;
+  font-size: 20px;
+}
+
+.position-detail-btn-cart:focus {
+  outline: none;
+}

@@ -1,0 +1,17 @@
+.menu-link {
+  text-decoration: none;
+  font-weight: 300;
+  color: rgba(0,0,0,.6);
+  white-space: nowrap;
+  font-size: 24px;
+}
+
+.menu-link:focus, .menu-link:hover {
+  text-decoration: none;
+  color: rgba(0,0,0,.8);
+}
+
+.menu-link-active {
+  font-weight: bold;
+  color: rgba(0,0,0,.8);
+}

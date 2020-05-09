@@ -1,0 +1,9 @@
+.special-offer-title {
+  font-size: 26px;
+  color: #0051BA;
+}
+
+.special-offer-image {
+  border-radius: 25px;
+  box-sizing: 0 4px 4px rgba(0,0,0,.25);
+}
