@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { render } from "react-dom";
-import { TransitionGroup } from "react-transition-group";
 import "./style.css";
 import { rootStore } from "./Store/RootStore";
 import { inject, observer } from "mobx-react";
@@ -18,32 +18,43 @@ import { SearchBar } from "./components/SearchBar/SearchBar";
 import { Menu } from "./components/Menu/Menu";
 import { MenuPositionDetail } from "./components/MenuPositionDetail/MenuPositionDetail";
 import { ShoppingCart } from "./components/ShoppingCart/ShoppingCart";
+import { Search } from "./components/Search/Search";
 
 const App = inject("rootStore")(
   observer((props) => {
+    const location = useLocation();
     return (
-      <Router>
-        <div className="container-main position-relative">
-          <SearchBar />
-          <Menu />
-        </div>
-        <Switch>
-          <Route
-            path="/menu-position/:id"
-            children={<MenuPositionDetail />}
-          ></Route>
-          <Route path="/shopping-cart">
-            <ShoppingCart />
-          </Route>
-        </Switch>
-      </Router>
+      <TransitionGroup>
+        <CSSTransition key={location.key} classNames="fadeNav" timeout={100}>
+          <Switch location={location}>
+            <Route exact path="/">
+              <div className="container-main position-relative">
+                <SearchBar />
+                <Menu />
+              </div>
+            </Route>
+            <Route
+              path="/menu-position/:id"
+              children={<MenuPositionDetail />}
+            ></Route>
+            <Route path="/search">
+              <Search />
+            </Route>
+            <Route path="/shopping-cart">
+              <ShoppingCart />
+            </Route>
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
     );
   })
 );
 
 render(
   <Provider rootStore={rootStore}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
