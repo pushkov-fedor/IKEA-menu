@@ -17,7 +17,11 @@ export const Menu = withRouter(
 
       const positions = menuStore.getPositionsByCategory(currentCategory);
       const positionEls = positions.map((pos, index) => (
-        <CSSTransition key={pos.title} timeout={400} classNames="fade">
+        <CSSTransition
+          key={pos.title}
+          timeout={{ enter: 500, exit: 400 }}
+          classNames="fade"
+        >
           <div className="col-6">
             <MenuPosition position={pos} in />
           </div>
@@ -30,7 +34,7 @@ export const Menu = withRouter(
           <div className="container pt-3">
             <TransitionGroup className="row w-100 mx-0 pb-4">
               {positionEls}
-              <SpecialOffer />
+              {/* <SpecialOffer /> */}
             </TransitionGroup>
           </div>
         </div>

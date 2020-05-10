@@ -25,7 +25,11 @@ const App = inject("rootStore")(
     const location = useLocation();
     return (
       <TransitionGroup>
-        <CSSTransition key={location.key} classNames="fadeNav" timeout={100}>
+        <CSSTransition
+          key={location.key}
+          classNames="fadeNav"
+          timeout={{ enter: 250, exit: 150 }}
+        >
           <Switch location={location}>
             <Route exact path="/">
               <div className="container-main position-relative">

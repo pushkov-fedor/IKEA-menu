@@ -19,14 +19,14 @@ body {
 }
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 400ms ease-in;
+  transition: opacity 500ms ease-in;
 }
 .fade-exit {
   opacity: 1;
 }
 .fade-exit-active {
   opacity: 0;
-  transition: opacity 200ms ease-in;
+  transition: opacity 400ms ease-in;
 }
 
 .fadeNav-enter {
@@ -34,12 +34,12 @@ body {
 }
 .fadeNav-enter-active {
   opacity: 1;
-  transition: opacity 100ms ease-in;
+  transition: opacity 150ms ease-in;
 }
 .fadeNav-exit {
   opacity: 1;
 }
 .fadeNav-exit-active {
   opacity: 0;
-  transition: opacity 100ms ease-in;
+  transition: opacity 150ms ease-in;
 }
