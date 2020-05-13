@@ -117,6 +117,15 @@ const getPositionsByCategory = (category) => {
     return positionsJS.filter((pos) => pos.path === category);
   }
 };
+const getPositionsByQuery = (query) => {
+  const copy = toJS(menuPositions);
+  return copy.filter(
+    (pos) =>
+      pos.title.toLowerCase().includes(query.toLowerCase()) &&
+      query !== "" &&
+      query.length > 1
+  );
+};
 const getPositionById = (id) => {
   const positionsJS = toJS(menuPositions);
   const position = positionsJS.find((pos) => pos.id == id);
@@ -144,6 +153,7 @@ export const menuStore = {
   menuNavs,
   menuPositions,
   getPositionsByCategory,
+  getPositionsByQuery,
   getPositionById,
   specialOffer,
 };

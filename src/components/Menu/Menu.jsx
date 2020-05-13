@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useLocation } from "react-router-dom";
 import { toJS } from "mobx";
@@ -27,6 +27,8 @@ export const Menu = withRouter(
           </div>
         </CSSTransition>
       ));
+
+      useEffect(() => window.scrollTo(0, 0), []);
 
       return (
         <div className="container-menu">

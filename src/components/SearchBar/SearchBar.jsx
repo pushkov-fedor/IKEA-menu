@@ -10,7 +10,7 @@ export const SearchBar = inject("rootStore")(
     return (
       <div className="container searchbar-container d-flex align-items-center position-relative">
         <div
-          className="d-flex align-items-center searchbar w-75 px-2 mx-3 position-relative"
+          className="d-flex align-items-center searchbar w-75 px-3 mx-3 position-relative"
           onClick={() => history.push("/search")}
         >
           <div className="search-icon mr-1">

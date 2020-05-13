@@ -29,6 +29,25 @@ body {
   transition: opacity 400ms ease-in;
 }
 
+.fadeRight-enter {
+  transform: translateX(100px);
+  opacity: 0;
+}
+.fadeRight-enter-done {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 400ms ease-in;
+}
+.fadeRight-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+.fadeRight-exit-active {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: all 400ms ease-in;
+}
+
 .fadeNav-enter {
   opacity: 0;
 }
@@ -42,4 +61,17 @@ body {
 .fadeNav-exit-active {
   opacity: 0;
   transition: opacity 150ms ease-in;
+}
+
+.square {
+  padding-bottom: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 25px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.square img {
+  position: absolute;
+  object-fit: cover;
 }
