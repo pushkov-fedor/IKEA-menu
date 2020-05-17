@@ -19,7 +19,7 @@ export const Menu = withRouter(
       const positionEls = positions.map((pos, index) => (
         <CSSTransition
           key={pos.title}
-          timeout={{ enter: 500, exit: 400 }}
+          timeout={{ enter: 300, exit: 300 }}
           classNames="fade"
         >
           <div className="col-6">

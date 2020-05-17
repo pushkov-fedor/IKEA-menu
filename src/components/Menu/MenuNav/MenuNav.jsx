@@ -12,7 +12,7 @@ export const MenuNav = inject("rootStore")(
     const current = menuStore.currentCategory.get();
 
     const menuEls = menuNavs.map((category) => (
-      <li className="px-2" key={category}>
+      <li className="px-2" key={category} style={{ cursor: "pointer" }}>
         <div
           className={
             category === current ? "menu-link menu-link-active" : "menu-link"

@@ -13,13 +13,17 @@ export const MenuPosition = inject("rootStore")(
         to={`/menu-position/${id}`}
         className="menu-position-link-container"
       >
-        <div
-          className="position-relative"
-          key={id}
-          style={{ transition: "all .5s" }}
-        >
+        <div className="position-relative" key={id}>
           <div className="square">
-            <img className="w-100 h-100" src={photo} />
+            <div
+              className="w-100 h-100"
+              style={{
+                background: `url(${photo}) no-repeat`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                position: "absolute",
+              }}
+            />
           </div>
           <p className="price-badge px-2 font-weight-bold">{price} ₽</p>
           <p className="text-center position-title p-2 mb-1">{title}</p>

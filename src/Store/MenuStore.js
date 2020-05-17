@@ -15,10 +15,17 @@ const setMenuNavs = action((navs) => {
 when(
   () => menuNavs.length === 0,
   () => {
-    setTimeout(() => {
-      const navs = ["Всё", "Завтрак", "Обед", "Ужин", "Новинки", "Для детей"];
-      setMenuNavs(navs);
-    }, 1000);
+    fetch("http://192.168.0.101:8080/category/getAll")
+      .then((response) => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+      })
+      .then(({ response }) => {
+        const navs = response.map(({ name }) => name);
+        navs.unshift("Всё");
+        setMenuNavs(navs);
+      })
+      .catch((error) => console.log(error));
   }
 );
 
@@ -34,79 +41,29 @@ const setMenuPositions = action((positions) => {
 when(
   () => menuPositions.length === 0,
   () => {
-    setTimeout(() => {
-      const positions = [
-        {
-          id: 1,
-          price: 109,
-          path: "Завтрак",
-          photo:
-            "https://images.pexels.com/photos/1095550/pexels-photo-1095550.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-          title: "Сэндвич с яйцом",
-          description:
-            "Микс салатов, лосось, рассыпчатый творог и обжаренный фундук",
-          includes: "Рыбу, Молоко, Сульфиты",
-          calories: 957,
-          consistOf:
-            "Лосось, Огурец, Помидоры черри, Маслины, Кунжут,Соевый соус, Сок лимонный, Масло оливковое, Перец черный (молотый), Зелень (петрушка, укроп)",
-          proteins: 39,
-          fats: 64,
-          carbohydrates: 97,
-        },
-        {
-          id: 2,
-          price: 159,
-          path: "Завтрак",
-          photo:
-            "https://images.pexels.com/photos/1333746/pexels-photo-1333746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-          title: "Банановая каша",
-          description:
-            "Микс салатов, лосось, рассыпчатый творог и обжаренный фундук",
-          includes: "Рыбу, Молоко, Сульфиты",
-          calories: 957,
-          consistOf:
-            "Лосось, Огурец, Помидоры черри, Маслины, Кунжут,Соевый соус, Сок лимонный, Масло оливковое, Перец черный (молотый), Зелень (петрушка, укроп)",
-          proteins: 39,
-          fats: 64,
-          carbohydrates: 97,
-        },
-        {
-          id: 3,
-          price: 159,
-          path: "Обед",
-          photo:
-            "https://images.pexels.com/photos/3297807/pexels-photo-3297807.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-          title: "Лапша по-гонконгски",
-          description:
-            "Микс салатов, лосось, рассыпчатый творог и обжаренный фундук",
-          includes: "Рыбу, Молоко, Сульфиты",
-          calories: 957,
-          consistOf:
-            "Лосось, Огурец, Помидоры черри, Маслины, Кунжут,Соевый соус, Сок лимонный, Масло оливковое, Перец черный (молотый), Зелень (петрушка, укроп)",
-          proteins: 39,
-          fats: 64,
-          carbohydrates: 97,
-        },
-        {
-          id: 4,
-          price: 159,
-          path: "Обед",
-          photo:
-            "https://images.pexels.com/photos/2260208/pexels-photo-2260208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-          title: "Пицца Нью-Мехико",
-          description:
-            "Микс салатов, лосось, рассыпчатый творог и обжаренный фундук",
-          includes: "Рыбу, Молоко, Сульфиты",
-          calories: 957,
-          consistOf:
-            "Лосось, Огурец, Помидоры черри, Маслины, Кунжут,Соевый соус, Сок лимонный, Масло оливковое, Перец черный (молотый), Зелень (петрушка, укроп)",
-          proteins: 39,
-          fats: 64,
-          carbohydrates: 97,
-        },
-      ];
-      setMenuPositions(positions);
-    }, 1000);
+    fetch("http://192.168.0.101:8080/product/getAll")
+      .then((response) => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+      })
+      .then(({ response }) => {
+        const positions = response.map((pos) => ({
+          id: pos.id,
+          price: pos.cost,
+          path: pos.category,
+          photo: pos.urlPhoto,
+          title: pos.name,
+          description: pos.description,
+          includes: pos.allergens,
+          calories: pos.bgu.calories,
+          consistOf: pos.consist,
+          proteins: pos.bgu.proteins,
+          fats: pos.bgu.fats,
+          carbohydrates: pos.bgu.carbohydrates,
+        }));
+        setMenuPositions(positions);
+      })
+      .catch((error) => console.log(error));
   }
 );
 const getPositionsByCategory = (category) => {

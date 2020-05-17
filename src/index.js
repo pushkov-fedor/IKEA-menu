@@ -28,7 +28,7 @@ const App = inject("rootStore")(
         <CSSTransition
           key={location.key}
           classNames="fadeNav"
-          timeout={{ enter: 250, exit: 150 }}
+          timeout={{ enter: 150, exit: 150 }}
         >
           <Switch location={location}>
             <Route exact path="/">
