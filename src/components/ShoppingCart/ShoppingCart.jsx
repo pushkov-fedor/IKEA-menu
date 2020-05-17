@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { toJS } from "mobx";
 import { inject, observer } from "mobx-react";
 import { withRouter } from "react-router-dom";
@@ -25,6 +25,8 @@ export const ShoppingCart = withRouter(
             <p className="cart-total-price">{`${totalPrice} ₽`}</p>
           </div>
         );
+
+      useEffect(() => window.scrollTo(0, 0), []);
 
       return (
         <div className="position-relative cart-wrapper">
